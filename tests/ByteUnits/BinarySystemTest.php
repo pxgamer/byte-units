@@ -2,7 +2,9 @@
 
 namespace ByteUnits;
 
-class BinarySystemTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class BinarySystemTest extends TestCase
 {
     public function testKilobytesConstructor()
     {

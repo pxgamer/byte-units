@@ -2,7 +2,9 @@
 
 namespace ByteUnits;
 
-class ArithmeticTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ArithmeticTest extends TestCase
 {
     public function testAddInSameUnitSystem()
     {
@@ -25,7 +27,7 @@ class ArithmeticTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException ByteUnits\NegativeBytesException
+     * @expectedException \ByteUnits\NegativeBytesException
      */
     public function testCannotRemoveMoreBytesThanYouHave()
     {
