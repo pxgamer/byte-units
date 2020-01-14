@@ -36,11 +36,10 @@ class BinarySystemTest extends TestCase
         $this->assertEquals(Binary::bytes(1152921504606846976), Binary::exabytes(1));
     }
 
-    /**
-     * @expectedException ByteUnits\NegativeBytesException
-     */
     public function testCannotBeNegative()
     {
+        $this->expectException(NegativeBytesException::class);
+
         Binary::bytes(-1);
     }
 }

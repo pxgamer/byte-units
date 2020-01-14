@@ -26,11 +26,10 @@ class ArithmeticTest extends TestCase
         $this->assertEquals(Metric::bytes(3), Metric::bytes(5)->remove('2B'));
     }
 
-    /**
-     * @expectedException \ByteUnits\NegativeBytesException
-     */
     public function testCannotRemoveMoreBytesThanYouHave()
     {
+        $this->expectException(NegativeBytesException::class);
+
         Metric::bytes(5)->remove(Metric::bytes(10));
     }
 

@@ -30,27 +30,24 @@ class ParseTest extends TestCase
         $this->assertEquals(Metric::bytes(1000), parse('1.00~~~kB'));
     }
 
-    /**
-     * @expectedException ByteUnits\ParseException
-     */
     public function testInvalidByteFormat()
     {
+        $this->expectException(ParseException::class);
+
         parse('Not a valid byte format');
     }
 
-    /**
-     * @expectedException ByteUnits\ParseException
-     */
     public function testInvalidByteFormatForBinarySystem()
     {
+        $this->expectException(ParseException::class);
+
         Binary::parse('1.00kB');
     }
 
-    /**
-     * @expectedException ByteUnits\ParseException
-     */
     public function testInvalidByteFormatForMetricSystem()
     {
+        $this->expectException(ParseException::class);
+
         Metric::parse('1.00KiB');
     }
 }

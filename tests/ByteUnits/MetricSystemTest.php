@@ -36,11 +36,10 @@ class MetricSystemTest extends TestCase
         $this->assertEquals(Metric::bytes(1000000000000000000), Metric::exabytes(1));
     }
 
-    /**
-     * @expectedException ByteUnits\NegativeBytesException
-     */
     public function testCannotBeNegative()
     {
+        $this->expectException(NegativeBytesException::class);
+
         Metric::bytes(-1);
     }
 }
